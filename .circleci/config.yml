@@ -6,7 +6,7 @@ workflows:
   build_and_push_image:
     jobs:
       - approvefirst:
-          type: approval
+          type: approval  
       - aws-ecr/build-and-push-image:
           filters:
             branches:
@@ -27,6 +27,4 @@ workflows:
           path: .
           repo: ecrdockerrightbell
           tag: 'latest'
-          requires: 
-            - approvefirst
           
