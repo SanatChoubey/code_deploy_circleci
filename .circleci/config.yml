@@ -8,7 +8,6 @@ workflows:
       - approvefirst:
           type: approval
       - aws-ecr/build-and-push-image:
-          type: approval
           dockerfile: Dockerfile
           path: .
           repo: ecrdockerrightbell
