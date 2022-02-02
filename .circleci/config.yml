@@ -5,10 +5,14 @@ orbs:
 workflows:
   build_and_push_image:
     jobs:
+      - approvefirst:
+          type: approval
       - aws-ecr/build-and-push-image:
-          create-repo: true
+          type: approval
           dockerfile: Dockerfile
           path: .
           repo: ecrdockerrightbell
           tag: 'latest'
-          # type: approval
+          require: 
+            - approvefirst
+          
