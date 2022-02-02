@@ -1,21 +1,14 @@
 version: 2.1
-orbs: 
-  aws-ecr: circleci/aws-ecr@7.3.0
-  jobs:
-    build:
-      filters:
-        branches:
-          only:
-            - main
-  workflows:
+  orbs: 
+    aws-ecr: circleci/aws-ecr@4.3.0
+
+workflows:
   build_and_push_image:
     jobs:
       - aws-ecr/build-and-push-image:
-          aws-access-key-id: $Awskey
-          aws-secret-access-key: $awsSecret
           create-repo: true
           dockerfile: Dockerfile
           path: .
-          region: ap-south-1
           repo: ecrdockerrightbell
           tag: 'latest'
+          type: approval
