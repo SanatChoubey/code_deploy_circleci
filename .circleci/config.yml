@@ -11,4 +11,4 @@ workflows:
           path: .
           repo: ecrdockerrightbell
           tag: 'latest'
-          type: approval
+          # type: approval
