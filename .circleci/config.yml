@@ -12,6 +12,6 @@ workflows:
           path: .
           repo: ecrdockerrightbell
           tag: 'latest'
-          require: 
+          requires: 
             - approvefirst
           
