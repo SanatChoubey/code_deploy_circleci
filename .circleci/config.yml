@@ -8,23 +8,23 @@ workflows:
       - approvefirst:
           type: approval  
       - aws-ecr/build-and-push-image:
-          filters:
-            branches:
-              only:
-                - main
+          # filters:
+          #   branches:
+          #     only:
+          #       - main
           dockerfile: Dockerfile
           path: .
-          repo: ecrdockerrightbell
+          repo: ecrdockerrightbell 
           tag: 'latest'
           requires: 
             - approvefirst
-      - aws-ecr/build-and-push-image:
-          filters:
-            branches:
-              only:
-                - develop
-          dockerfile: Dockerfile.dev
-          path: .
-          repo: ecrdockerrightbell
-          tag: 'latest'
+      # - aws-ecr/build-and-push-image:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - develop
+      #     dockerfile: Dockerfile.dev
+      #     path: .
+      #     repo: ecrdevrightbell
+      #     tag: 'latest'
           
