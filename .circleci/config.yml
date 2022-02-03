@@ -1,6 +1,7 @@
 version: 2.1
 orbs: 
   aws-ecr: circleci/aws-ecr@7.3.0
+  aws-ecs: circleci/aws-ecs@2.2.1
 
 workflows:
   build_and_push_image:
@@ -18,6 +19,12 @@ workflows:
           tag: 'latest'
           requires: 
             - approvefirst
+      - aws-ecs/deploy-service-update:
+          cluster-name: 't2Docker-cluster'
+          container-image-name-updates: 'container=t2Docker-service,tag=latest'
+          family: 'TaskRIghtBell-service'
+          requires:
+            - aws-ecr/build-and-push-image  
       # - aws-ecr/build-and-push-image:
       #     filters:
       #       branches:
