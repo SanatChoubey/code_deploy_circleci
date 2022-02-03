@@ -1,0 +1,6 @@
+[
+  {
+    "name": "dockerimahe",
+    "imageUri": "542010471039.dkr.ecr.ap-south-1.amazonaws.com/ecrdockerrightbell:latest"
+  }
+]
